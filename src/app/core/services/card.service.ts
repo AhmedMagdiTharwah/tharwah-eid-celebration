@@ -32,6 +32,41 @@ export class CardService {
       imagePath: 'cards/card-4.png',
       thumbnailPath: 'cards/card-4.png',
     },
+    {
+      id: 'eid-fitr-01',
+      name: 'Eid Al-Fitr - Design 1',
+      nameAr: 'عيد الفطر - تصميم ١',
+      imagePath: 'cards/eid-fitr-tharwah-01.png',
+      thumbnailPath: 'cards/eid-fitr-tharwah-01.png',
+    },
+    {
+      id: 'eid-fitr-02',
+      name: 'Eid Al-Fitr - Design 2',
+      nameAr: 'عيد الفطر - تصميم ٢',
+      imagePath: 'cards/eid-fitr-tharwah-02.png',
+      thumbnailPath: 'cards/eid-fitr-tharwah-02.png',
+    },
+    {
+      id: 'eid-fitr-03',
+      name: 'Eid Al-Fitr - Design 3',
+      nameAr: 'عيد الفطر - تصميم ٣',
+      imagePath: 'cards/eid-fitr-tharwah-03.png',
+      thumbnailPath: 'cards/eid-fitr-tharwah-03.png',
+    },
+    {
+      id: 'eid-fitr-04',
+      name: 'Eid Al-Fitr - Design 4',
+      nameAr: 'عيد الفطر - تصميم ٤',
+      imagePath: 'cards/eid-fitr-tharwah-04.png',
+      thumbnailPath: 'cards/eid-fitr-tharwah-04.png',
+    },
+    {
+      id: 'eid-fitr-05',
+      name: 'Eid Al-Fitr - Design 5',
+      nameAr: 'عيد الفطر - تصميم ٥',
+      imagePath: 'cards/eid-fitr-tharwah-05.png',
+      thumbnailPath: 'cards/eid-fitr-tharwah-05.png',
+    },
   ]);
 
   readonly selectedCard = signal<CelebrationCard | null>(null);
