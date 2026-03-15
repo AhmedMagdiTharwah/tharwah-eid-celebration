@@ -186,12 +186,6 @@ export class CardEditor {
         ctx.textBaseline = 'middle';
         ctx.direction = 'inherit';
 
-        // Add text shadow matching the CSS
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-        ctx.shadowBlur = 8 * scale;
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 2 * scale;
-
         // Convert percentage position to pixel position
         const textX = (overlay.x / 100) * naturalW;
         const textY = (overlay.y / 100) * naturalH;
