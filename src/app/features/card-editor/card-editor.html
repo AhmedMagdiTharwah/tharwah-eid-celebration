@@ -1,0 +1,132 @@
+@if (selectedCard(); as card) {
+  <section class="editor" [class.rtl]="isRtl()">
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button class="btn-back" (click)="goBack()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5m7-7-7 7 7 7"/>
+        </svg>
+        {{ t('editor.back') }}
+      </button>
+
+      <button
+        class="btn-download"
+        (click)="downloadCard()"
+        [disabled]="isDownloading() || !textOverlay().text"
+      >
+        @if (isDownloading()) {
+          <span class="spinner"></span>
+        } @else {
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5 5 5 5-5m-5 5V3"/>
+          </svg>
+        }
+        {{ t('editor.download') }}
+      </button>
+    </div>
+
+    <div class="editor-layout">
+      <!-- Canvas Area -->
+      <div class="canvas-section">
+        <!-- Drag hint banner above image -->
+        <div class="drag-hint-banner">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 9l4-4 4 4M5 15l4 4 4-4M15 9l4-4M15 15l4 4M19 5l-4 4M19 19l-4-4"/>
+          </svg>
+          <span>{{ t('editor.dragHint') }}</span>
+        </div>
+
+        <div class="canvas-wrapper" #cardCanvas>
+          <img [src]="card.imagePath" [alt]="card.name" class="card-bg" crossorigin="anonymous" />
+
+          @if (textOverlay().text) {
+            <div
+              class="text-overlay"
+              [style.left.%]="textOverlay().x"
+              [style.top.%]="textOverlay().y"
+              [style.fontSize.px]="textOverlay().fontSize"
+              [style.color]="textOverlay().color"
+              [style.fontFamily]="textOverlay().fontFamily"
+              (pointerdown)="onPointerDown($event)"
+              (pointermove)="onPointerMove($event)"
+              (pointerup)="onPointerUp()"
+              (pointercancel)="onPointerUp()"
+            >
+              {{ textOverlay().text }}
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Controls Panel -->
+      <div class="controls-panel">
+        <!-- Name Input -->
+        <div class="control-group">
+          <label>{{ t('editor.name') }}</label>
+          <input
+            type="text"
+            [value]="textOverlay().text"
+            (input)="updateText($event)"
+            [placeholder]="t('editor.namePlaceholder')"
+            class="input-name"
+            [dir]="isRtl() ? 'rtl' : 'ltr'"
+          />
+        </div>
+
+        <!-- Font Family -->
+        <div class="control-group">
+          <label>{{ t('editor.font') }}</label>
+          <select [value]="textOverlay().fontFamily" (change)="updateFont($event)" class="select-font">
+            @for (font of fontOptions; track font.value) {
+              <option [value]="font.value" [style.fontFamily]="font.value">{{ font.label }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- Font Size -->
+        <div class="control-group">
+          <label>{{ t('editor.fontSize') }}: {{ textOverlay().fontSize }}px</label>
+          <input
+            type="range"
+            [value]="textOverlay().fontSize"
+            (input)="updateFontSize($event)"
+            min="14"
+            max="80"
+            step="1"
+            class="slider"
+          />
+        </div>
+
+        <!-- Color -->
+        <div class="control-group">
+          <label>{{ t('editor.color') }}</label>
+          <div class="color-options">
+            @for (color of colorPresets; track color) {
+              <button
+                class="color-swatch"
+                [style.backgroundColor]="color"
+                [class.active]="textOverlay().color === color"
+                (click)="updateColor(color)"
+                [attr.aria-label]="'Color ' + color"
+              ></button>
+            }
+            <label class="custom-color-label">
+              <input
+                type="color"
+                [value]="textOverlay().color"
+                (input)="updateColorFromPicker($event)"
+                class="color-picker-input"
+              />
+              <span class="custom-color-icon">+</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Position -->
+        <button class="btn-reset" (click)="resetPosition()">
+          {{ t('editor.reset') }}
+        </button>
+      </div>
+    </div>
+  </section>
+}

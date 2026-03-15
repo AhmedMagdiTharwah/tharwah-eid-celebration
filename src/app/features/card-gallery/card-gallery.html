@@ -1,0 +1,23 @@
+<section class="gallery" [class.rtl]="isRtl()">
+  <div class="gallery-header">
+    <h1>{{ t('gallery.title') }}</h1>
+    <p>{{ t('app.subtitle') }}</p>
+  </div>
+
+  <div class="card-grid">
+    @for (card of cards(); track card.id) {
+      <button class="card-item" (click)="selectCard(card)">
+        <div class="card-image-wrapper">
+          <img [src]="card.thumbnailPath" [alt]="cardName()(card)" loading="lazy" />
+          <div class="card-overlay">
+            <span class="select-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </button>
+    }
+  </div>
+</section>
