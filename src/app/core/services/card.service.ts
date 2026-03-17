@@ -5,34 +5,6 @@ import { CelebrationCard, TextOverlay } from '../models/card.model';
 export class CardService {
   readonly cards = signal<CelebrationCard[]>([
     {
-      id: 'card-1',
-      name: 'Eid Mubarak - Sky Blue',
-      nameAr: 'عيد مبارك - أزرق سماوي',
-      imagePath: 'cards/card-1.png',
-      thumbnailPath: 'cards/card-1.png',
-    },
-    {
-      id: 'card-2',
-      name: 'Eid Mubarak - Mosque',
-      nameAr: 'عيد مبارك - المسجد',
-      imagePath: 'cards/card-2.png',
-      thumbnailPath: 'cards/card-2.png',
-    },
-    {
-      id: 'card-3',
-      name: 'Eid Mubarak - Night',
-      nameAr: 'عيد مبارك - ليلي',
-      imagePath: 'cards/card-3.png',
-      thumbnailPath: 'cards/card-3.png',
-    },
-    {
-      id: 'card-4',
-      name: 'Eid Mubarak - Golden Dome',
-      nameAr: 'عيد مبارك - القبة الذهبية',
-      imagePath: 'cards/card-4.png',
-      thumbnailPath: 'cards/card-4.png',
-    },
-    {
       id: 'eid-fitr-01',
       name: 'Eid Al-Fitr - Design 1',
       nameAr: 'عيد الفطر - تصميم ١',
@@ -66,6 +38,13 @@ export class CardService {
       nameAr: 'عيد الفطر - تصميم ٥',
       imagePath: 'cards/eid-fitr-tharwah-05.png',
       thumbnailPath: 'cards/eid-fitr-tharwah-05.png',
+    },
+    {
+      id: 'eid-fitr-06',
+      name: 'Eid Al-Fitr - Design 5',
+      nameAr: 'عيد الفطر - تصميم ٥',
+      imagePath: 'cards/eid-fitr-tharwah-06.png',
+      thumbnailPath: 'cards/eid-fitr-tharwah-06.png',
     },
   ]);
 

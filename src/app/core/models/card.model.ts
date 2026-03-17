@@ -19,8 +19,8 @@ export interface TextOverlay {
 export type Language = 'en' | 'ar';
 
 export const TRANSLATIONS: Record<string, Record<Language, string>> = {
-  'app.title': { en: 'Tharwah Eid Celebration', ar: 'احتفال ثروة بالعيد' },
-  'app.subtitle': { en: 'Create your personalized celebration card', ar: 'أنشئ بطاقة احتفالك الشخصية' },
+  'app.title': { en: 'Eid al-Fitr 2026 greeting cards', ar: 'بطاقات تهنئة عيد الفطر 2026' },
+  'app.subtitle': { en: 'Add your name and share your Eid greeting', ar: 'أضف إسمك وشارك تهنئتك بالعيد' },
   'gallery.title': { en: 'Choose Your Card', ar: 'اختر بطاقتك' },
   'editor.name': { en: 'Your Name', ar: 'اسمك' },
   'editor.namePlaceholder': { en: 'Enter your name...', ar: 'أدخل اسمك...' },
