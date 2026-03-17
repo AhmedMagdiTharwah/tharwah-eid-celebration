@@ -26,11 +26,11 @@ export class CardService {
       thumbnailPath: 'cards/eid-fitr-tharwah-03.png',
     },
     {
-      id: 'eid-fitr-04',
+      id: 'eid-fitr-07',
       name: 'Eid Al-Fitr - Design 4',
       nameAr: 'عيد الفطر - تصميم ٤',
-      imagePath: 'cards/eid-fitr-tharwah-04.png',
-      thumbnailPath: 'cards/eid-fitr-tharwah-04.png',
+      imagePath: 'cards/eid-fitr-tharwah-07.png',
+      thumbnailPath: 'cards/eid-fitr-tharwah-07.png',
     },
     {
       id: 'eid-fitr-05',
